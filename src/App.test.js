@@ -1,8 +1,12 @@
-import { render, screen } from '@testing-library/react';
+import React from 'react';
+import ReactDom from 'react-dom'
+import { Router } from 'react-router-dom';
+
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+test("renders the correct content",()=>{
+    const root = document.createElement("div");
+    ReactDom.render(<App/>,root);
+
+    expect(root.querySelector("h5").textContent).toBe("To Do List");
+})
